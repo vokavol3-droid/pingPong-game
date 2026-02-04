@@ -67,9 +67,9 @@ font1 = font.Font(None, 36)
 window = display.set_mode((700, 500))
 display.set_caption('Пинг-понг')
 
-player1 = Player('ping_pong/racket.png', 10, 200, 4, 80, 100)
-player2 = Player('ping_pong/racket.png', 600, 200, 4, 80, 100)
-ball = Ball('ping_pong/ball.png', 350, 250, 3, 20, 20) 
+player1 = Player('racket.png', 10, 200, 4, 80, 100)
+player2 = Player('racket.png', 600, 200, 4, 80, 100)
+ball = Ball('ball.png', 350, 250, 3, 20, 20) 
 
 score_text1 = font1.render('Счет: ' + str(score1), True, (255, 255, 255))
 score_text2 = font1.render('Счет: ' + str(score2), True, (255, 255, 255))
@@ -94,10 +94,12 @@ while game:
         elif result == "left":
             score1 += 1
             score_text1 = font1.render('Счет: ' + str(score1), True, (255, 255, 255))
+        
 
         if score1 >= 5 or score2 >= 5:
             finish = True
-            
+        
+   
         window.blit(score_text1, (10, 10))
         window.blit(score_text2, (500, 10))
         
@@ -116,7 +118,7 @@ while game:
             window.blit(winTXT1, (200, 200))
         elif score2 >= 5:
             window.blit(winTXT2, (200, 200))
-            
+        
         player1.reset()
         player2.reset()
         ball.reset()
